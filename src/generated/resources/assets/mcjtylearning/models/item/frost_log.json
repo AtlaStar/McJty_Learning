@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "mcjtylearning:block/frost_log",
+    "end": "mcjtylearning:block/frost_log_top"
+  }
+}
