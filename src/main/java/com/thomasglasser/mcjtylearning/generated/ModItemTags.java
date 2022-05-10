@@ -20,8 +20,18 @@ public class ModItemTags extends ItemTagsProvider {
     {
         tag(ItemTags.LOGS)
                 .add(Registration.FROST_LOG_ITEM.get());
+
+        tag(ItemTags.LOGS_THAT_BURN)
+                .add(Registration.FROST_LOG_ITEM.get());
+
         tag(Tags.Items.ORES)
                 .add(Registration.VERITE_ORE_ITEM.get());
+
+        tag(Tags.Items.INGOTS)
+                .add(Registration.VERITE_INGOT.get());
+
+        tag(Tags.Items.RAW_MATERIALS)
+                .add(Registration.RAW_VERITE_CHUNK.get());
     }
 
     @Override

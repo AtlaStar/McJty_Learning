@@ -5,6 +5,7 @@ import com.thomasglasser.mcjtylearning.init.Registration;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -18,13 +19,20 @@ public class ModBlockTags extends BlockTagsProvider {
     {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(Registration.VERITE_ORE.get());
+
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(Registration.FROST_LOG.get());
+
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(Registration.VERITE_ORE.get());
+
         tag(Tags.Blocks.ORES)
                 .add(Registration.VERITE_ORE.get());
+
         tag(BlockTags.LOGS)
+                .add(Registration.FROST_LOG.get());
+
+        tag(BlockTags.LOGS_THAT_BURN)
                 .add(Registration.FROST_LOG.get());
     }
 

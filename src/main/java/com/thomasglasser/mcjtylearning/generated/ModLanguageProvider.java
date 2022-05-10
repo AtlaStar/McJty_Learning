@@ -15,5 +15,7 @@ public class ModLanguageProvider extends LanguageProvider {
     protected void addTranslations() {
         add(Registration.VERITE_ORE.get(), "Verite Ore");
         add(Registration.FROST_LOG.get(), "Frost Log");
+        add(Registration.RAW_VERITE_CHUNK.get(), "Raw Verite Chunk");
+        add(Registration.VERITE_INGOT.get(), "Verite Ingot");
     }
 }

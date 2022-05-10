@@ -1,4 +1,6 @@
 {
   "block.mcjtylearning.frost_log": "Frost Log",
-  "block.mcjtylearning.verite_ore": "Verite Ore"
+  "block.mcjtylearning.verite_ore": "Verite Ore",
+  "item.mcjtylearning.raw_verite_chunk": "Raw Verite Chunk",
+  "item.mcjtylearning.verite_ingot": "Verite Ingot"
 }
