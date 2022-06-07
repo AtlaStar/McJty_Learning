@@ -1,6 +1,9 @@
 {
   "block.mcjtylearning.frost_log": "Frost Log",
+  "block.mcjtylearning.power_generator": "Power Generator",
   "block.mcjtylearning.verite_ore": "Verite Ore",
   "item.mcjtylearning.raw_verite_chunk": "Raw Verite Chunk",
-  "item.mcjtylearning.verite_ingot": "Verite Ingot"
+  "item.mcjtylearning.verite_ingot": "Verite Ingot",
+  "message.power_generator": "Power Generator generating %s per tick!",
+  "screen.tutorial.power_generator": "Power Generator"
 }

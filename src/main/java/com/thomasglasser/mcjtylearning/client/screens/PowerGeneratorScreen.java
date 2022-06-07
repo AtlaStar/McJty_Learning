@@ -1,4 +1,4 @@
-package com.thomasglasser.mcjtylearning.client;
+package com.thomasglasser.mcjtylearning.client.screens;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;

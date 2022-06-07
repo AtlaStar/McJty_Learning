@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "mcjtylearning:power_generator"
+    ]
+  },
+  "criteria": {
+    "verite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "mcjtylearning:verite_ingot"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "mcjtylearning:power_generator"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "verite",
+      "has_the_recipe"
+    ]
+  ]
+}

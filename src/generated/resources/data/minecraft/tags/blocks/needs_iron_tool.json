@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "mcjtylearning:verite_ore"
+    "mcjtylearning:verite_ore",
+    "mcjtylearning:power_generator"
   ]
 }

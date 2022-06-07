@@ -18,13 +18,15 @@ public class ModBlockTags extends BlockTagsProvider {
     protected void addTags()
     {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(Registration.VERITE_ORE.get());
+                .add(Registration.VERITE_ORE.get())
+                .add(Registration.POWER_GENERATOR.get());
 
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(Registration.FROST_LOG.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(Registration.VERITE_ORE.get());
+                .add(Registration.VERITE_ORE.get())
+                .add(Registration.POWER_GENERATOR.get());
 
         tag(Tags.Blocks.ORES)
                 .add(Registration.VERITE_ORE.get());

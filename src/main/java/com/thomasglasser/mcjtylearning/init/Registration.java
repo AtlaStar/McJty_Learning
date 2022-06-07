@@ -37,6 +37,8 @@ public class Registration {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         BLOCKS.register(bus);
         ITEMS.register(bus);
+        BLOCK_ENTITIES.register(bus);
+        CONTAINERS.register(bus);
     }
 
     //BLOCKS
