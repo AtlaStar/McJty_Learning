@@ -154,7 +154,7 @@ dependencies {
 
     // NEED 1.19 VERSION
     // implementation fg.deobf("curse.maven:jei-238222:${jei_version}")
-    // implementation fg.deobf("curse.maven:theoneprobe-245211:${top_version}")
+    implementation fg.deobf("curse.maven:theoneprobe-245211:${top_version}")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
