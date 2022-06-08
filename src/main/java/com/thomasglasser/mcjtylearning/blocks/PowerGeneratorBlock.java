@@ -5,7 +5,6 @@ import com.thomasglasser.mcjtylearning.blocks.entities.PowerGeneratorBlockEntity
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -60,7 +59,7 @@ public class PowerGeneratorBlock extends Block implements EntityBlock
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        pTooltip.add(new TranslatableComponent(MESSAGE_POWER_GENERATOR, Integer.toString(PowerGeneratorBlockEntity.POWER_GENERATOR_GENERATE))
+        pTooltip.add(Component.translatable(MESSAGE_POWER_GENERATOR, Integer.toString(PowerGeneratorBlockEntity.POWER_GENERATOR_GENERATE))
                 .withStyle(ChatFormatting.BLUE)
         );
     }
@@ -110,7 +109,7 @@ public class PowerGeneratorBlock extends Block implements EntityBlock
                 MenuProvider containerProvider = new MenuProvider() {
                     @Override
                     public Component getDisplayName() {
-                        return new TranslatableComponent(SCREEN_TUTORIAL_POWER_GENERATOR);
+                        return Component.translatable(SCREEN_TUTORIAL_POWER_GENERATOR);
                     }
 
                     @Nullable

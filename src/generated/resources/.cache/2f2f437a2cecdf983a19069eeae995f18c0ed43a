@@ -1,0 +1,10 @@
+// 1.19	2022-06-07T22:08:32.1910979	Block States: mcjtylearning
+ca9ec4fe6c4029715a36336dee393c6d21f9afe6 assets/mcjtylearning/blockstates/frost_log.json
+2d260f23a400f68b3ab392ef97205a5bec039511 assets/mcjtylearning/blockstates/power_generator.json
+4fa7ef4ad8b1a6bb3758502e0dfefba426ab85e6 assets/mcjtylearning/blockstates/verite_ore.json
+98d362d86a3d09dc0173b6b76f1da094315bc44f assets/mcjtylearning/models/block/frost_log.json
+3ddd7870c85f1438a9a9974aa60158e1c347b700 assets/mcjtylearning/models/block/frost_log_horizontal.json
+b3acc4a87b9dd60a6e7cc375ea977468c279e982 assets/mcjtylearning/models/block/powergen/main.json
+1ecb47bf9a4c4772af2a60567a76db30a74cc6de assets/mcjtylearning/models/block/powergen/singleoff.json
+1b8189b0dbb21b034a248561bfe2996008f3b19d assets/mcjtylearning/models/block/powergen/singleon.json
+4b0e267ab8a3858be09d166aa8772d19634aecfb assets/mcjtylearning/models/block/verite_ore.json

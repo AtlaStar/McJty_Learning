@@ -13,20 +13,17 @@ public class DataGenerators {
     {
         DataGenerator generator = event.getGenerator();
 
-        if (event.includeServer())
-        {
-            ModBlockTags blockTags = new ModBlockTags(generator, event.getExistingFileHelper());
-            generator.addProvider(blockTags);
-            generator.addProvider(new ModItemTags(generator, blockTags, event.getExistingFileHelper()));
+        boolean onServer = event.includeServer();
+        boolean onClient = event.includeClient();
 
-            generator.addProvider(new ModRecipes(generator));
+        ModBlockTags blockTags = new ModBlockTags(generator, event.getExistingFileHelper());
+        generator.addProvider(onServer, blockTags);
+        generator.addProvider(onServer, new ModItemTags(generator, blockTags, event.getExistingFileHelper()));
+        generator.addProvider(onServer, new ModRecipes(generator));
+        generator.addProvider(onServer, new ModLootTables(generator));
 
-            generator.addProvider(new ModLootTables(generator));
-        }
-        if(event.includeClient()) {
-            generator.addProvider(new ModBlockStates(generator, event.getExistingFileHelper()));
-            generator.addProvider(new ModItemModels(generator, event.getExistingFileHelper()));
-            generator.addProvider(new ModLanguageProvider(generator, "en_us"));
-        }
+        generator.addProvider(onClient, new ModBlockStates(generator, event.getExistingFileHelper()));
+        generator.addProvider(onClient, new ModItemModels(generator, event.getExistingFileHelper()));
+        generator.addProvider(onClient, new ModLanguageProvider(generator, "en_us"));
     }
 }

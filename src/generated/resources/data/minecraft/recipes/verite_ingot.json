@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 100,
+  "experience": 1.0,
   "ingredient": {
     "item": "mcjtylearning:raw_verite_chunk"
   },
-  "result": "mcjtylearning:verite_ingot",
-  "experience": 1.0,
-  "cookingtime": 100
+  "result": "mcjtylearning:verite_ingot"
 }

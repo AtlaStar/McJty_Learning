@@ -42,7 +42,7 @@ public class Registration {
     }
 
     //BLOCKS
-    public static final RegistryObject<Block> VERITE_ORE = BLOCKS.register("verite_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(2.0F)));
+    public static final RegistryObject<Block> VERITE_ORE = BLOCKS.register("verite_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(2.0F)));
     public static final RegistryObject<Block> FROST_LOG = BLOCKS.register("frost_log", () -> log(MaterialColor.COLOR_LIGHT_BLUE, MaterialColor.COLOR_LIGHT_GRAY));
 
     //BLOCK ITEMS

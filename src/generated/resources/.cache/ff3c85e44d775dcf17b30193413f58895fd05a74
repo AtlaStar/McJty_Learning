@@ -1,0 +1,7 @@
+// 1.19	2022-06-07T22:08:32.1841027	McJty Learning Tags
+4dd56d7a34b3dfe20bae746b9bd6dd44995d638a data/forge/tags/blocks/ores.json
+ee45aca837e523f83d7dfe2fe3404316b665baf8 data/minecraft/tags/blocks/logs.json
+ee45aca837e523f83d7dfe2fe3404316b665baf8 data/minecraft/tags/blocks/logs_that_burn.json
+ee45aca837e523f83d7dfe2fe3404316b665baf8 data/minecraft/tags/blocks/mineable/axe.json
+bb4fb48dde91d1eceeee2768f66154c5fb31e542 data/minecraft/tags/blocks/mineable/pickaxe.json
+bb4fb48dde91d1eceeee2768f66154c5fb31e542 data/minecraft/tags/blocks/needs_iron_tool.json
