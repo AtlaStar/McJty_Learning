@@ -1,8 +1,10 @@
 package com.thomasglasser.mcjtylearning.init;
 
 import com.thomasglasser.mcjtylearning.McJtyLearning;
+import com.thomasglasser.mcjtylearning.blocks.GeneratorBlock;
 import com.thomasglasser.mcjtylearning.blocks.PowerGeneratorBlock;
 import com.thomasglasser.mcjtylearning.blocks.containers.PowerGeneratorContainer;
+import com.thomasglasser.mcjtylearning.blocks.entities.GeneratorBlockEntity;
 import com.thomasglasser.mcjtylearning.blocks.entities.PowerGeneratorBlockEntity;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.Direction;
@@ -44,18 +46,24 @@ public class Registration {
     //BLOCKS
     public static final RegistryObject<Block> VERITE_ORE = BLOCKS.register("verite_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(2.0F)));
     public static final RegistryObject<Block> FROST_LOG = BLOCKS.register("frost_log", () -> log(MaterialColor.COLOR_LIGHT_BLUE, MaterialColor.COLOR_LIGHT_GRAY));
+    public static final RegistryObject<PowerGeneratorBlock> POWER_GENERATOR = BLOCKS.register("power_generator", PowerGeneratorBlock::new);
+    public static final RegistryObject<Block> GENERATOR = BLOCKS.register("generator", GeneratorBlock::new);
 
     //BLOCK ITEMS
     public static final RegistryObject<Item> VERITE_ORE_ITEM = registerBlock(VERITE_ORE, CreativeModeTab.TAB_BUILDING_BLOCKS);
     public static final RegistryObject<Item> FROST_LOG_ITEM = registerBlock(FROST_LOG, CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Item> POWER_GENERATOR_ITEM = registerBlock(POWER_GENERATOR, CreativeModeTab.TAB_REDSTONE);
+    public static final RegistryObject<Item> GENERATOR_ITEM = registerBlock(GENERATOR, CreativeModeTab.TAB_REDSTONE);
 
     //ITEMS
     public static final RegistryObject<Item> RAW_VERITE_CHUNK = ITEMS.register("raw_verite_chunk", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
     public static final RegistryObject<Item> VERITE_INGOT = ITEMS.register("verite_ingot", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
 
-    public static final RegistryObject<PowerGeneratorBlock> POWER_GENERATOR = BLOCKS.register("power_generator", PowerGeneratorBlock::new);
-    public static final RegistryObject<Item> POWER_GENERATOR_ITEM = registerBlock(POWER_GENERATOR, CreativeModeTab.TAB_REDSTONE);
+    //BLOCK ENTITIES
     public static final RegistryObject<BlockEntityType<PowerGeneratorBlockEntity>> POWER_GENERATOR_BLOCK_ENTITY = BLOCK_ENTITIES.register("power_generator", () -> BlockEntityType.Builder.of(PowerGeneratorBlockEntity::new, POWER_GENERATOR.get()).build(null));
+    public static final RegistryObject<BlockEntityType<GeneratorBlockEntity>> GENERATOR_BLOCK_ENTITY = BLOCK_ENTITIES.register("generator", () -> BlockEntityType.Builder.of(GeneratorBlockEntity::new, GENERATOR.get()).build(null));
+
+    //MENU TYPES
     public static final RegistryObject<MenuType<PowerGeneratorContainer>> POWER_GENERATOR_CONTAINER = CONTAINERS.register("powergen", () -> IForgeMenuType.create(((windowId, inv, data) -> new PowerGeneratorContainer(windowId, data.readBlockPos(), inv, inv.player))));
 
 
