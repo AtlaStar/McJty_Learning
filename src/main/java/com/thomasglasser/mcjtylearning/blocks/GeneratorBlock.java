@@ -37,12 +37,12 @@ public class GeneratorBlock extends Block implements EntityBlock
 {
     public static final String MESSAGE_GENERATOR = "message.generator";
 
-    private static final VoxelShape SHAPE_DOWN = Shapes.box(8, .2, 0, 1, 1, 1);
-    private static final VoxelShape SHAPE_UP = Shapes.box(0, 8, 0, 1, .8, 1);
-    private static final VoxelShape SHAPE_NORTH = Shapes.box(0, 8, .2, 1, 1, 1);
-    private static final VoxelShape SHAPE_SOUTH = Shapes.box(0, 8, 0, 1, 1, .8);
-    private static final VoxelShape SHAPE_WEST = Shapes.box(.2, 8, 0, 1, 1, 1);
-    private static final VoxelShape SHAPE_EAST = Shapes.box(8, 0, 0, .8, 1, 1);
+    private static final VoxelShape SHAPE_DOWN = Shapes.box(0, .2, 0, 1, 1, 1);
+    private static final VoxelShape SHAPE_UP = Shapes.box(0, 0, 0, 1, .8, 1);
+    private static final VoxelShape SHAPE_NORTH = Shapes.box(0, 0, .2, 1, 1, 1);
+    private static final VoxelShape SHAPE_SOUTH = Shapes.box(0, 0, 0, 1, 1, .8);
+    private static final VoxelShape SHAPE_WEST = Shapes.box(.2, 0, 0, 1, 1, 1);
+    private static final VoxelShape SHAPE_EAST = Shapes.box(0, 0, 0, .8, 1, 1);
 
     public GeneratorBlock()
     {

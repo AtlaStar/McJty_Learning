@@ -1,4 +1,4 @@
-package com.thomasglasser.mcjtylearning.varia;
+package com.thomasglasser.mcjtylearning.tools;
 
 import net.minecraftforge.energy.EnergyStorage;
 

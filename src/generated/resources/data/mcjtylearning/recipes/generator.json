@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "mcjtylearning",
+  "key": {
+    "#": {
+      "tag": "forge:ingots/iron"
+    },
+    "m": {
+      "item": "mcjtylearning:verite_ingot"
+    },
+    "x": {
+      "tag": "forge:gems/diamond"
+    }
+  },
+  "pattern": [
+    "mxm",
+    "x#x",
+    "#x#"
+  ],
+  "result": {
+    "item": "mcjtylearning:generator"
+  }
+}
