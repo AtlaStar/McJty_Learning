@@ -1,7 +1,7 @@
 package com.thomasglasser.mcjtylearning.blocks.entities;
 
 import com.thomasglasser.mcjtylearning.init.Registration;
-import com.thomasglasser.mcjtylearning.varia.CustomEnergyStorage;
+import com.thomasglasser.mcjtylearning.tools.CustomEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;

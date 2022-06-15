@@ -1,12 +1,11 @@
 package com.thomasglasser.mcjtylearning.blocks.containers;
 
 import com.thomasglasser.mcjtylearning.init.Registration;
-import com.thomasglasser.mcjtylearning.varia.CustomEnergyStorage;
+import com.thomasglasser.mcjtylearning.tools.CustomEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -17,7 +16,6 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
-import org.jetbrains.annotations.Nullable;
 
 public class PowerGeneratorContainer extends AbstractContainerMenu
 {

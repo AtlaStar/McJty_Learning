@@ -1,5 +1,7 @@
-// 1.19	2022-06-07T22:08:32.1940972	Recipes
+// 1.19	2022-06-14T21:02:10.8557483	Recipes
+dbd421faf5a2389494269150e713f0d0fedcecb4 data/mcjtylearning/advancements/recipes/redstone/generator.json
 1f68fa74c4162b28f5bd4dbcaa8083ddb5cf31b6 data/mcjtylearning/advancements/recipes/redstone/power_generator.json
+8f77b85538bf8c9dfaf7441669e578fb64cadd3d data/mcjtylearning/recipes/generator.json
 ba5b5208f06edf4fc7207c268b7fb0f75c50d719 data/mcjtylearning/recipes/power_generator.json
 66ccfca42c26c7b6f05d1fd058a7bc2084b06b7a data/minecraft/advancements/recipes/misc/verite_ingot.json
 114ff203bee150a51c77280649581b85373714ea data/minecraft/recipes/verite_ingot.json

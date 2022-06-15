@@ -16,6 +16,7 @@ public class ModItemModels extends ItemModelProvider {
     protected void registerModels() {
         withExistingParent(Registration.VERITE_ORE_ITEM.getId().getPath(), modLoc("block/verite_ore"));
         withExistingParent(Registration.POWER_GENERATOR.getId().getPath(), modLoc("block/powergen/main"));
+        withExistingParent(Registration.GENERATOR.getId().getPath(), modLoc("block/generator"));
 
         cubeColumn(Registration.FROST_LOG_ITEM.getId().getPath(), modLoc("block/frost_log"), modLoc("block/frost_log_top"));
 

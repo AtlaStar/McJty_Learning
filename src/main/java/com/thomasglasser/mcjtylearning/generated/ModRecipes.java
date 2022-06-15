@@ -37,5 +37,16 @@ public class ModRecipes extends RecipeProvider {
                 .group("mcjtylearning")
                 .unlockedBy("verite", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.VERITE_INGOT.get()))
                 .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.GENERATOR.get())
+                .pattern("mxm")
+                .pattern("x#x")
+                .pattern("#x#")
+                .define('x', Tags.Items.GEMS_DIAMOND)
+                .define('#', Tags.Items.INGOTS_IRON)
+                .define('m', Registration.VERITE_INGOT.get())
+                .group("mcjtylearning")
+                .unlockedBy("verite", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.VERITE_INGOT.get()))
+                .save(consumer);
     }
 }

@@ -1,4 +1,4 @@
-package com.thomasglasser.mcjtylearning.generated;
+package com.thomasglasser.mcjtylearning.tools;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -10,9 +10,12 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.CustomLoaderBuilder;
 import net.minecraftforge.client.model.generators.MultiPartBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.lwjgl.system.CallbackI;
+
+import static com.thomasglasser.mcjtylearning.client.models.loaders.GeneratorModelLoader.GENERATOR_LOADER;
 
 public class ModBlockStates extends BlockStateProvider {
     public ModBlockStates(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -23,8 +26,19 @@ public class ModBlockStates extends BlockStateProvider {
     protected void registerStatesAndModels()
     {
         registerPowerGenerator();
+        registerGenerator();
         simpleBlock(Registration.VERITE_ORE.get());
         logBlock((RotatedPillarBlock) Registration.FROST_LOG.get());
+    }
+
+    private void registerGenerator()
+    {
+        BlockModelBuilder generatorModel = models().getBuilder(Registration.GENERATOR.getId().getPath())
+                .parent(models().getExistingFile(mcLoc("cube")))
+                .customLoader((blockModelBuilder, helper) -> new CustomLoaderBuilder<BlockModelBuilder>(GENERATOR_LOADER, blockModelBuilder, helper) {} )
+                .end();
+
+        directionalBlock(Registration.GENERATOR.get(), generatorModel);
     }
 
     private void registerPowerGenerator()
