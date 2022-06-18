@@ -50,6 +50,7 @@ public class GeneratorBlock extends Block implements EntityBlock
                 .sound(SoundType.METAL)
                 .strength(2.0f)
                 .noOcclusion()
+                .requiresCorrectToolForDrops()
         );
     }
 

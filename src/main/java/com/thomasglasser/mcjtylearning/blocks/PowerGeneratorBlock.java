@@ -48,6 +48,7 @@ public class PowerGeneratorBlock extends Block implements EntityBlock
                 .sound(SoundType.METAL)
                 .strength(2.0f)
                 .lightLevel(state -> state.getValue(BlockStateProperties.POWERED) ? 14 : 0)
+                .requiresCorrectToolForDrops()
         );
     }
 
