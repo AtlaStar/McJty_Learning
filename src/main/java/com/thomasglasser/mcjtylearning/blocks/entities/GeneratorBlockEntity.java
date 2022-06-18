@@ -186,7 +186,7 @@ public class GeneratorBlockEntity extends BlockEntity {
                 energy.consumeEnergy(ENERGY_GENERATE);
                 item = item.copy();
                 item.shrink(1);
-                inputItems.setStackInSlot(1, item);
+                inputItems.setStackInSlot(i, item);
                 generatingCounter++;
                 areWeGenerating = true;
                 setChanged();
