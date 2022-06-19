@@ -1,10 +1,10 @@
-package com.thomasglasser.mcjtylearning.client.models.loaders;
+package com.thomasglasser.mcjtylearning.client.blocks.models.loaders;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.mojang.datafixers.util.Pair;
 import com.thomasglasser.mcjtylearning.McJtyLearning;
-import com.thomasglasser.mcjtylearning.client.models.GeneratorBakedModel;
+import com.thomasglasser.mcjtylearning.client.blocks.models.GeneratorBakedModel;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.*;

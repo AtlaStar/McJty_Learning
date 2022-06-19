@@ -1,6 +1,6 @@
-package com.thomasglasser.mcjtylearning.blocks;
+package com.thomasglasser.mcjtylearning.server.blocks;
 
-import com.thomasglasser.mcjtylearning.blocks.entities.GeneratorBlockEntity;
+import com.thomasglasser.mcjtylearning.server.blocks.entities.GeneratorBlockEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

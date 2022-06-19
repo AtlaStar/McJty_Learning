@@ -32,6 +32,9 @@ public class ModItemTags extends ItemTagsProvider {
 
         tag(Tags.Items.RAW_MATERIALS)
                 .add(Registration.RAW_VERITE_CHUNK.get());
+
+        tag(Tags.Items.STORAGE_BLOCKS)
+                .add(Registration.GENERATOR_ITEM.get());
     }
 
     @Override

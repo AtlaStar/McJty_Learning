@@ -1,7 +1,7 @@
-package com.thomasglasser.mcjtylearning.blocks;
+package com.thomasglasser.mcjtylearning.server.blocks;
 
-import com.thomasglasser.mcjtylearning.blocks.containers.PowerGeneratorContainer;
-import com.thomasglasser.mcjtylearning.blocks.entities.PowerGeneratorBlockEntity;
+import com.thomasglasser.mcjtylearning.server.blocks.containers.PowerGeneratorContainer;
+import com.thomasglasser.mcjtylearning.server.blocks.entities.PowerGeneratorBlockEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;

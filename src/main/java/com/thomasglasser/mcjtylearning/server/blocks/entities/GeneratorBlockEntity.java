@@ -1,7 +1,8 @@
-package com.thomasglasser.mcjtylearning.blocks.entities;
+package com.thomasglasser.mcjtylearning.server.blocks.entities;
 
 import com.thomasglasser.mcjtylearning.init.Registration;
 import com.thomasglasser.mcjtylearning.tools.CustomEnergyStorage;
+import com.thomasglasser.mcjtylearning.tools.Tools;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -194,20 +195,11 @@ public class GeneratorBlockEntity extends BlockEntity {
                 {
                     generatingCounter = 0;
                     ItemStack remaining = ItemHandlerHelper.insertItem(outputItems, new ItemStack(generatingBlock.getBlock().asItem()), false);
-                    spawnInWorld(remaining);
+                    Tools.spawnInWorld(level, worldPosition, remaining);
                 }
             }
         }
         return areWeGenerating;
-    }
-
-    private void spawnInWorld(ItemStack remaining) {
-        if (!remaining.isEmpty()) {
-            ItemEntity itemEntity = new ItemEntity(level, worldPosition.getX(), worldPosition.getY() + .5, worldPosition.getZ(), remaining);
-            itemEntity.setPickUpDelay(40);
-            itemEntity.setDeltaMovement(itemEntity.getDeltaMovement().multiply(0, 1, 0));
-            level.addFreshEntity(itemEntity);
-        }
     }
 
     private ItemStackHandler createInputItemHandler() {

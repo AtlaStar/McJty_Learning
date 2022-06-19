@@ -1,11 +1,11 @@
-package com.thomasglasser.mcjtylearning.client.models;
+package com.thomasglasser.mcjtylearning.client.blocks.models;
 
 import com.mojang.math.Matrix4f;
 import com.mojang.math.Transformation;
-import com.thomasglasser.mcjtylearning.blocks.GeneratorBlock;
-import com.thomasglasser.mcjtylearning.blocks.entities.GeneratorBlockEntity;
-import com.thomasglasser.mcjtylearning.client.models.keys.GeneratorModelKey;
-import com.thomasglasser.mcjtylearning.client.models.loaders.GeneratorModelLoader;
+import com.thomasglasser.mcjtylearning.client.blocks.models.keys.GeneratorModelKey;
+import com.thomasglasser.mcjtylearning.client.blocks.models.loaders.GeneratorModelLoader;
+import com.thomasglasser.mcjtylearning.server.blocks.GeneratorBlock;
+import com.thomasglasser.mcjtylearning.server.blocks.entities.GeneratorBlockEntity;
 import com.thomasglasser.mcjtylearning.tools.ClientTools;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;

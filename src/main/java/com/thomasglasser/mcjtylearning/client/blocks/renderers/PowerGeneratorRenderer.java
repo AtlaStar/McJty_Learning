@@ -1,11 +1,11 @@
-package com.thomasglasser.mcjtylearning.client.renderers;
+package com.thomasglasser.mcjtylearning.client.blocks.renderers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Matrix4f;
 import com.mojang.math.Quaternion;
 import com.thomasglasser.mcjtylearning.McJtyLearning;
-import com.thomasglasser.mcjtylearning.blocks.entities.PowerGeneratorBlockEntity;
+import com.thomasglasser.mcjtylearning.server.blocks.entities.PowerGeneratorBlockEntity;
 import com.thomasglasser.mcjtylearning.init.Registration;
 import com.thomasglasser.mcjtylearning.tools.CustomRenderType;
 import net.minecraft.client.Minecraft;

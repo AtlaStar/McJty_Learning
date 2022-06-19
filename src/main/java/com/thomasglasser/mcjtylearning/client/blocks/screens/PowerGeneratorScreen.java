@@ -1,9 +1,9 @@
-package com.thomasglasser.mcjtylearning.client.screens;
+package com.thomasglasser.mcjtylearning.client.blocks.screens;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.thomasglasser.mcjtylearning.McJtyLearning;
-import com.thomasglasser.mcjtylearning.blocks.containers.PowerGeneratorContainer;
+import com.thomasglasser.mcjtylearning.server.blocks.containers.PowerGeneratorContainer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;

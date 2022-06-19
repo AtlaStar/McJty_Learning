@@ -4,7 +4,6 @@ import com.thomasglasser.mcjtylearning.McJtyLearning;
 import com.thomasglasser.mcjtylearning.init.Registration;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DataProvider;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -13,9 +12,8 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.CustomLoaderBuilder;
 import net.minecraftforge.client.model.generators.MultiPartBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import org.lwjgl.system.CallbackI;
 
-import static com.thomasglasser.mcjtylearning.client.models.loaders.GeneratorModelLoader.GENERATOR_LOADER;
+import static com.thomasglasser.mcjtylearning.client.blocks.models.loaders.GeneratorModelLoader.GENERATOR_LOADER;
 
 public class ModBlockStates extends BlockStateProvider {
     public ModBlockStates(DataGenerator generator, ExistingFileHelper existingFileHelper) {

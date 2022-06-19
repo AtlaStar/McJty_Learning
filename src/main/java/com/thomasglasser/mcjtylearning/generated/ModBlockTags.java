@@ -38,6 +38,9 @@ public class ModBlockTags extends BlockTagsProvider {
 
         tag(BlockTags.LOGS_THAT_BURN)
                 .add(Registration.FROST_LOG.get());
+
+        tag(Tags.Blocks.STORAGE_BLOCKS)
+                .add(Registration.GENERATOR.get());
     }
 
     @Override

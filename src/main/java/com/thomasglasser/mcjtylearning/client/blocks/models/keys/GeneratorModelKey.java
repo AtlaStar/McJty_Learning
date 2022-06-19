@@ -1,4 +1,4 @@
-package com.thomasglasser.mcjtylearning.client.models.keys;
+package com.thomasglasser.mcjtylearning.client.blocks.models.keys;
 
 import net.minecraft.client.resources.model.ModelState;
 

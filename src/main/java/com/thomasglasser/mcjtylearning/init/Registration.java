@@ -1,23 +1,25 @@
 package com.thomasglasser.mcjtylearning.init;
 
-import com.thomasglasser.mcjtylearning.McJtyLearning;
-import com.thomasglasser.mcjtylearning.blocks.GeneratorBlock;
-import com.thomasglasser.mcjtylearning.blocks.PowerGeneratorBlock;
-import com.thomasglasser.mcjtylearning.blocks.containers.PowerGeneratorContainer;
-import com.thomasglasser.mcjtylearning.blocks.entities.GeneratorBlockEntity;
-import com.thomasglasser.mcjtylearning.blocks.entities.PowerGeneratorBlockEntity;
-import net.minecraft.client.renderer.item.ItemProperties;
+import com.thomasglasser.mcjtylearning.server.blocks.GeneratorBlock;
+import com.thomasglasser.mcjtylearning.server.blocks.PowerGeneratorBlock;
+import com.thomasglasser.mcjtylearning.server.blocks.containers.PowerGeneratorContainer;
+import com.thomasglasser.mcjtylearning.server.blocks.entities.GeneratorBlockEntity;
+import com.thomasglasser.mcjtylearning.server.blocks.entities.PowerGeneratorBlockEntity;
+import com.thomasglasser.mcjtylearning.server.entities.Thief;
 import net.minecraft.core.Direction;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -34,6 +36,8 @@ public class Registration {
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, MODID);
     private static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, MODID);
 
+    private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, MODID);
+
     public static void init()
     {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -41,6 +45,7 @@ public class Registration {
         ITEMS.register(bus);
         BLOCK_ENTITIES.register(bus);
         CONTAINERS.register(bus);
+        ENTITIES.register(bus);
     }
 
     //BLOCKS
@@ -55,9 +60,17 @@ public class Registration {
     public static final RegistryObject<Item> POWER_GENERATOR_ITEM = registerBlock(POWER_GENERATOR, CreativeModeTab.TAB_REDSTONE);
     public static final RegistryObject<Item> GENERATOR_ITEM = registerBlock(GENERATOR, CreativeModeTab.TAB_REDSTONE);
 
+    //ENTITIES
+    public static final RegistryObject<EntityType<Thief>> THIEF = ENTITIES.register("thief", () -> EntityType.Builder.of(Thief::new, MobCategory.CREATURE)
+            .sized(0.6f, 1.95f)
+            .clientTrackingRange(8)
+            .setShouldReceiveVelocityUpdates(false)
+            .build("thief"));
+
     //ITEMS
     public static final RegistryObject<Item> RAW_VERITE_CHUNK = ITEMS.register("raw_verite_chunk", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
     public static final RegistryObject<Item> VERITE_INGOT = ITEMS.register("verite_ingot", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+    public static final RegistryObject<Item> THIEF_SPAWN_EGG = ITEMS.register("thief", () -> new ForgeSpawnEggItem(THIEF, 0xff0000, 0x00ff00, new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
     //BLOCK ENTITIES
     public static final RegistryObject<BlockEntityType<PowerGeneratorBlockEntity>> POWER_GENERATOR_BLOCK_ENTITY = BLOCK_ENTITIES.register("power_generator", () -> BlockEntityType.Builder.of(PowerGeneratorBlockEntity::new, POWER_GENERATOR.get()).build(null));
@@ -65,7 +78,6 @@ public class Registration {
 
     //MENU TYPES
     public static final RegistryObject<MenuType<PowerGeneratorContainer>> POWER_GENERATOR_CONTAINER = CONTAINERS.register("powergen", () -> IForgeMenuType.create(((windowId, inv, data) -> new PowerGeneratorContainer(windowId, data.readBlockPos(), inv, inv.player))));
-
 
     public static <B extends Block> RegistryObject<Item> registerBlock(RegistryObject<B> block, CreativeModeTab tab)
     {

@@ -1,7 +1,8 @@
-// 1.19	2022-06-14T21:02:10.8417567	Item Models: mcjtylearning
+// 1.19	2022-06-18T18:55:46.2846693	Item Models: mcjtylearning
 98d362d86a3d09dc0173b6b76f1da094315bc44f assets/mcjtylearning/models/item/frost_log.json
 d25058fe8c684336c765dd5f339aea9440a11fa9 assets/mcjtylearning/models/item/generator.json
 8558ec315422022f5f9a837c61a71fc043b96599 assets/mcjtylearning/models/item/power_generator.json
 6b270231e36a7aeaef593602257da3e7afc901c6 assets/mcjtylearning/models/item/raw_verite_chunk.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/mcjtylearning/models/item/thief.json
 ba9fc8709d8b5e9c7c068684383d16e56419625d assets/mcjtylearning/models/item/verite_ingot.json
 3a91cbe4b9ac9ef0dff31f30160d94f729ba2a16 assets/mcjtylearning/models/item/verite_ore.json

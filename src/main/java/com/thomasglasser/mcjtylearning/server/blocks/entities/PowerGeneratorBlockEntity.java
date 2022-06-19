@@ -1,4 +1,4 @@
-package com.thomasglasser.mcjtylearning.blocks.entities;
+package com.thomasglasser.mcjtylearning.server.blocks.entities;
 
 import com.thomasglasser.mcjtylearning.init.Registration;
 import com.thomasglasser.mcjtylearning.tools.CustomEnergyStorage;
