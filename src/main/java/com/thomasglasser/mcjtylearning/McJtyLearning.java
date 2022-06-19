@@ -1,6 +1,7 @@
 package com.thomasglasser.mcjtylearning;
 
 import com.mojang.logging.LogUtils;
+import com.thomasglasser.mcjtylearning.init.Configuration;
 import com.thomasglasser.mcjtylearning.init.ModSetup;
 import com.thomasglasser.mcjtylearning.init.Registration;
 import com.thomasglasser.mcjtylearning.init.ClientSetup;
@@ -35,6 +36,7 @@ public class McJtyLearning
     public McJtyLearning()
     {
         Registration.init();
+        Configuration.register();
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(ModSetup::init);

@@ -2,6 +2,7 @@ package com.thomasglasser.mcjtylearning.server.blocks;
 
 import com.thomasglasser.mcjtylearning.server.blocks.containers.PowerGeneratorContainer;
 import com.thomasglasser.mcjtylearning.server.blocks.entities.PowerGeneratorBlockEntity;
+import com.thomasglasser.mcjtylearning.server.config.PowerGeneratorConfig;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -60,7 +61,7 @@ public class PowerGeneratorBlock extends Block implements EntityBlock
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        pTooltip.add(Component.translatable(MESSAGE_POWER_GENERATOR, Integer.toString(PowerGeneratorBlockEntity.POWER_GENERATOR_GENERATE))
+        pTooltip.add(Component.translatable(MESSAGE_POWER_GENERATOR, Integer.toString(PowerGeneratorConfig.POWER_GENERATOR_GENERATE.get()))
                 .withStyle(ChatFormatting.BLUE)
         );
     }

@@ -1,6 +1,7 @@
 package com.thomasglasser.mcjtylearning.server.blocks.entities;
 
 import com.thomasglasser.mcjtylearning.init.Registration;
+import com.thomasglasser.mcjtylearning.server.config.GeneratorConfig;
 import com.thomasglasser.mcjtylearning.tools.CustomEnergyStorage;
 import com.thomasglasser.mcjtylearning.tools.Tools;
 import net.minecraft.core.BlockPos;
@@ -42,16 +43,8 @@ public class GeneratorBlockEntity extends BlockEntity {
     public static final ModelProperty<Boolean> COLLECTING = new ModelProperty<>();
     public static final ModelProperty<Boolean> ACTUALLY_GENERATING = new ModelProperty<>();
 
-    public static final int COLLECTING_DELAY = 10;
-
-    public static final int INGOTS_PER_ORE = 10;
-
     public static final int INPUT_SLOTS = 5;
     public static final int OUTPUT_SLOTS = 1;
-
-    public static final int ENERGY_CAPACITY = 100000;
-    public static final int ENERGY_RECEIVE = 1000;
-    public static final int ENERGY_GENERATE = 500;
 
     private boolean generating = false;
     private boolean collecting = false;
@@ -116,7 +109,7 @@ public class GeneratorBlockEntity extends BlockEntity {
             collectingTicker--;
             if (collectingTicker <= 0)
             {
-                collectingTicker = COLLECTING_DELAY;
+                collectingTicker = GeneratorConfig.COLLECTING_DELAY.get();
                 collectItems();
             }
         }
@@ -171,7 +164,7 @@ public class GeneratorBlockEntity extends BlockEntity {
             return false;
         }
 
-        if (energy.getEnergyStored() < ENERGY_GENERATE)
+        if (energy.getEnergyStored() < GeneratorConfig.ENERGY_GENERATE.get())
         {
             return false;
         }
@@ -184,14 +177,14 @@ public class GeneratorBlockEntity extends BlockEntity {
 
             if (!item.isEmpty())
             {
-                energy.consumeEnergy(ENERGY_GENERATE);
+                energy.consumeEnergy(GeneratorConfig.ENERGY_GENERATE.get());
                 item = item.copy();
                 item.shrink(1);
                 inputItems.setStackInSlot(i, item);
                 generatingCounter++;
                 areWeGenerating = true;
                 setChanged();
-                if (generatingCounter >= INGOTS_PER_ORE)
+                if (generatingCounter >= GeneratorConfig.INGOTS_PER_ORE.get())
                 {
                     generatingCounter = 0;
                     ItemStack remaining = ItemHandlerHelper.insertItem(outputItems, new ItemStack(generatingBlock.getBlock().asItem()), false);
@@ -240,7 +233,7 @@ public class GeneratorBlockEntity extends BlockEntity {
     }
 
     private CustomEnergyStorage createEnergyStorage() {
-        return new CustomEnergyStorage(ENERGY_CAPACITY, ENERGY_RECEIVE) {
+        return new CustomEnergyStorage(GeneratorConfig.ENERGY_CAPACITY.get(), GeneratorConfig.ENERGY_RECEIVE.get()) {
             @Override
             protected void onEnergyChanged() {
                 setChanged();

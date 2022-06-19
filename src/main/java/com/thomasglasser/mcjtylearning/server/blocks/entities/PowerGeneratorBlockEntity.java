@@ -1,6 +1,7 @@
 package com.thomasglasser.mcjtylearning.server.blocks.entities;
 
 import com.thomasglasser.mcjtylearning.init.Registration;
+import com.thomasglasser.mcjtylearning.server.config.PowerGeneratorConfig;
 import com.thomasglasser.mcjtylearning.tools.CustomEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -26,10 +27,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class PowerGeneratorBlockEntity extends BlockEntity
 {
-    public static final int POWER_GENERATOR_CAPACITY = 50000;
-    public static final int POWER_GENERATOR_GENERATE = 60;
-    public static final int POWER_GENERATOR_SEND = 200;
-
     private final ItemStackHandler itemStackHandler = createHandler();
     private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemStackHandler);
 
@@ -54,7 +51,7 @@ public class PowerGeneratorBlockEntity extends BlockEntity
     {
         if (counter > 0)
         {
-            energyStorage.addEnergy(POWER_GENERATOR_GENERATE);
+            energyStorage.addEnergy(PowerGeneratorConfig.POWER_GENERATOR_GENERATE.get());
             counter--;
             setChanged();
         }
@@ -92,7 +89,7 @@ public class PowerGeneratorBlockEntity extends BlockEntity
                 {
                     boolean doContinue = blockEntity.getCapability(CapabilityEnergy.ENERGY, direction.getOpposite()).map(handler -> {
                         if (handler.canReceive()) {
-                            int received = handler.receiveEnergy(Math.min(capacity.get(), POWER_GENERATOR_SEND), false);
+                            int received = handler.receiveEnergy(Math.min(capacity.get(), PowerGeneratorConfig.POWER_GENERATOR_SEND.get()), false);
                             capacity.addAndGet(-received);
                             energyStorage.consumeEnergy(received);
                             setChanged();
@@ -166,7 +163,7 @@ public class PowerGeneratorBlockEntity extends BlockEntity
 
     private CustomEnergyStorage createEnergy()
     {
-        return new CustomEnergyStorage(POWER_GENERATOR_CAPACITY, 0) {
+        return new CustomEnergyStorage(PowerGeneratorConfig.POWER_GENERATOR_CAPACITY.get(), 0) {
             @Override
             protected void onEnergyChanged() {
                 setChanged();

@@ -7,13 +7,18 @@ import com.mojang.math.Quaternion;
 import com.thomasglasser.mcjtylearning.McJtyLearning;
 import com.thomasglasser.mcjtylearning.server.blocks.entities.PowerGeneratorBlockEntity;
 import com.thomasglasser.mcjtylearning.init.Registration;
+import com.thomasglasser.mcjtylearning.server.config.PowerGeneratorConfig;
 import com.thomasglasser.mcjtylearning.tools.CustomRenderType;
+import net.minecraft.client.GraphicsStatus;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.resources.ResourceLocation;
@@ -46,7 +51,7 @@ public class PowerGeneratorRenderer implements BlockEntityRenderer<PowerGenerato
             s = 1.0f- s;
         }
 
-        float scale = 0.1f + s * .3f;
+        float scale = 0.1f + s * (float) (double) PowerGeneratorConfig.RENDER_SCALE.get();
 
         TextureAtlasSprite sprite = Minecraft.getInstance().getTextureAtlas(TextureAtlas.LOCATION_BLOCKS).apply(HALO);
 
@@ -56,13 +61,20 @@ public class PowerGeneratorRenderer implements BlockEntityRenderer<PowerGenerato
         Quaternion rotation = Minecraft.getInstance().gameRenderer.getMainCamera().rotation();
         pPoseStack.mulPose(rotation);
 
-        VertexConsumer buffer = pBufferSource.getBuffer(CustomRenderType.ADD);
+        VertexConsumer builder;
+        if (Minecraft.getInstance().options.graphicsMode().get() == GraphicsStatus.FABULOUS) {
+            builder = pBufferSource.getBuffer(Sheets.translucentItemSheet());
+        }
+        else {
+           builder = pBufferSource.getBuffer(CustomRenderType.ADD);
+        }
+
         Matrix4f matrix = pPoseStack.last().pose();
 
-        buffer.vertex(matrix, -scale, -scale, 0.0f).color(1.0f, 1.0f, 1.0f, 0.3f).uv(sprite.getU0(), sprite.getV0()).uv2(brightness).normal(1,0,0).endVertex();
-        buffer.vertex(matrix, -scale, scale, 0.0f).color(1.0f, 1.0f, 1.0f, 0.3f).uv(sprite.getU0(), sprite.getV1()).uv2(brightness).normal(1,0,0).endVertex();
-        buffer.vertex(matrix, scale, scale, 0.0f).color(1.0f, 1.0f, 1.0f, 0.3f).uv(sprite.getU1(), sprite.getV1()).uv2(brightness).normal(1,0,0).endVertex();
-        buffer.vertex(matrix, scale, -scale, 0.0f).color(1.0f, 1.0f, 1.0f, 0.3f).uv(sprite.getU1(), sprite.getV0()).uv2(brightness).normal(1,0,0).endVertex();
+        builder.vertex(matrix, -scale, -scale, 0.0f).color(1.0f, 1.0f, 1.0f, 0.3f).uv(sprite.getU0(), sprite.getV0()).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(brightness).normal(1,0,0).endVertex();
+        builder.vertex(matrix, -scale, scale, 0.0f).color(1.0f, 1.0f, 1.0f, 0.3f).uv(sprite.getU0(), sprite.getV1()).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(brightness).normal(1,0,0).endVertex();
+        builder.vertex(matrix, scale, scale, 0.0f).color(1.0f, 1.0f, 1.0f, 0.3f).uv(sprite.getU1(), sprite.getV1()).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(brightness).normal(1,0,0).endVertex();
+        builder.vertex(matrix, scale, -scale, 0.0f).color(1.0f, 1.0f, 1.0f, 0.3f).uv(sprite.getU1(), sprite.getV0()).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(brightness).normal(1,0,0).endVertex();
 
         pPoseStack.popPose();
     }
