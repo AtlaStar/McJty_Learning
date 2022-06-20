@@ -171,6 +171,6 @@ public class PowerGeneratorContainer extends AbstractContainerMenu
         addSlotBox(playerInventory, 9, leftCol, topRow, 9, 18, 3, 18);
 
         topRow += 58;
-        addSlotRange(playerInventory, 0, leftCol, topRow, 9, 10);
+        addSlotRange(playerInventory, 0, leftCol, topRow, 9, 18);
     }
 }

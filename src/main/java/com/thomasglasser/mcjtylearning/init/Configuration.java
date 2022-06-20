@@ -1,7 +1,8 @@
 package com.thomasglasser.mcjtylearning.init;
 
-import com.thomasglasser.mcjtylearning.server.config.GeneratorConfig;
-import com.thomasglasser.mcjtylearning.server.config.PowerGeneratorConfig;
+import com.thomasglasser.mcjtylearning.init.config.ManaConfig;
+import com.thomasglasser.mcjtylearning.init.config.GeneratorConfig;
+import com.thomasglasser.mcjtylearning.init.config.PowerGeneratorConfig;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
@@ -20,7 +21,7 @@ public class Configuration
     {
         ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
 
-        //Add entries (Waiting on oregen)
+        //TODO: Add entries (Waiting on oregen)
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, COMMON_BUILDER.build());
     }
@@ -32,6 +33,7 @@ public class Configuration
 
         GeneratorConfig.registerServer(SERVER_BUILDER);
         PowerGeneratorConfig.registerServer(SERVER_BUILDER);
+        ManaConfig.registerServer(SERVER_BUILDER);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, SERVER_BUILDER.build());
     }
@@ -41,6 +43,7 @@ public class Configuration
         ForgeConfigSpec.Builder CLIENT_BUILDER = new ForgeConfigSpec.Builder();
 
         PowerGeneratorConfig.registerClient(CLIENT_BUILDER);
+        ManaConfig.registerClient(CLIENT_BUILDER);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, CLIENT_BUILDER.build());
     }

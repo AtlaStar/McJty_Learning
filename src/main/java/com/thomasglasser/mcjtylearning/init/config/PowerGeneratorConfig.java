@@ -1,4 +1,4 @@
-package com.thomasglasser.mcjtylearning.server.config;
+package com.thomasglasser.mcjtylearning.init.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
@@ -12,7 +12,7 @@ public class PowerGeneratorConfig
 
     public static void registerServer(ForgeConfigSpec.Builder SERVER_BUILDER)
     {
-        SERVER_BUILDER.comment("Settings for the power generator").push("powergen");
+        SERVER_BUILDER.comment("Settings for the power generator").push("powergenerator");
 
         POWER_GENERATOR_CAPACITY = SERVER_BUILDER
                 .comment("Amount of energy the power generator can store")
@@ -31,11 +31,11 @@ public class PowerGeneratorConfig
 
     public static void registerClient(ForgeConfigSpec.Builder CLIENT_BUILDER)
     {
-        CLIENT_BUILDER.comment("Settings for the power generator").push("powergen");
+        CLIENT_BUILDER.comment("Settings for the power generator").push("powergenerator");
 
         RENDER_SCALE = CLIENT_BUILDER
                 .comment("Size of the light shine")
-                .defineInRange("scale", .3, 0.000001, Float.MAX_VALUE);
+                .defineInRange("scale", .3, 0.000001, Integer.MAX_VALUE);
 
         CLIENT_BUILDER.pop();
     }

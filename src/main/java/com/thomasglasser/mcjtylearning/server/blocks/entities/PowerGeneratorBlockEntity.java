@@ -1,7 +1,7 @@
 package com.thomasglasser.mcjtylearning.server.blocks.entities;
 
 import com.thomasglasser.mcjtylearning.init.Registration;
-import com.thomasglasser.mcjtylearning.server.config.PowerGeneratorConfig;
+import com.thomasglasser.mcjtylearning.init.config.PowerGeneratorConfig;
 import com.thomasglasser.mcjtylearning.tools.CustomEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

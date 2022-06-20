@@ -1,6 +1,8 @@
 package com.thomasglasser.mcjtylearning.generated;
 
 import com.thomasglasser.mcjtylearning.McJtyLearning;
+import com.thomasglasser.mcjtylearning.client.bindings.KeyBindings;
+import com.thomasglasser.mcjtylearning.network.GatherManaPacket;
 import com.thomasglasser.mcjtylearning.server.blocks.GeneratorBlock;
 import com.thomasglasser.mcjtylearning.server.blocks.PowerGeneratorBlock;
 import com.thomasglasser.mcjtylearning.init.Registration;
@@ -28,5 +30,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add(GeneratorBlock.MESSAGE_GENERATOR, "Generate ores from ingots!");
 
         add(Registration.THIEF.get(), "Thief");
+
+        add(KeyBindings.KEY_CATEGORIES_MANA, "Mana");
+        add(KeyBindings.KEY_GATHER_MANA, "Gather Mana");
+
+        add(GatherManaPacket.MESSAGE_NO_MANA, "No mana left in this chunk");
     }
 }

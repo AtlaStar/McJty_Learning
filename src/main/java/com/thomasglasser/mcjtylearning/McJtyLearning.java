@@ -35,6 +35,7 @@ public class McJtyLearning
 
     public McJtyLearning()
     {
+        ModSetup.setup();
         Registration.init();
         Configuration.register();
 

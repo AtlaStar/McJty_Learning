@@ -7,7 +7,10 @@
   "item.mcjtylearning.raw_verite_chunk": "Raw Verite Chunk",
   "item.mcjtylearning.thief": "Thief Spawn Egg",
   "item.mcjtylearning.verite_ingot": "Verite Ingot",
+  "key.categories.mana": "Mana",
+  "key.gatherMana": "Gather Mana",
   "message.generator": "Generate ores from ingots!",
+  "message.nomana": "No mana left in this chunk",
   "message.power_generator": "Power Generator generating %s per tick!",
   "screen.tutorial.power_generator": "Power Generator"
 }

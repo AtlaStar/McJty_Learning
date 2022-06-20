@@ -1,4 +1,4 @@
-package com.thomasglasser.mcjtylearning.server.config;
+package com.thomasglasser.mcjtylearning.init.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
@@ -19,7 +19,7 @@ public class GeneratorConfig
                 .defineInRange("collectingDelay", 10, 1, Integer.MAX_VALUE);
 
         INGOTS_PER_ORE = SERVER_BUILDER
-                .comment("Number of ingots generated from one ore")
+                .comment("Number of ingots needed to generate one ore")
                 .defineInRange("ingotsPerOre", 10, 1, Integer.MAX_VALUE);
 
         ENERGY_CAPACITY = SERVER_BUILDER
