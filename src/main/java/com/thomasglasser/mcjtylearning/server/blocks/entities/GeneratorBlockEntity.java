@@ -1,6 +1,6 @@
 package com.thomasglasser.mcjtylearning.server.blocks.entities;
 
-import com.thomasglasser.mcjtylearning.init.Registration;
+import com.thomasglasser.mcjtylearning.init.Elements;
 import com.thomasglasser.mcjtylearning.init.config.GeneratorConfig;
 import com.thomasglasser.mcjtylearning.tools.CustomEnergyStorage;
 import com.thomasglasser.mcjtylearning.tools.Tools;
@@ -69,7 +69,7 @@ public class GeneratorBlockEntity extends BlockEntity {
     private final LazyOptional<IEnergyStorage> energyHandler = LazyOptional.of(() -> energy);
 
     public GeneratorBlockEntity(BlockPos pos, BlockState state) {
-        super(Registration.GENERATOR_BLOCK_ENTITY.get(), pos, state);
+        super(Elements.GENERATOR_BLOCK_ENTITY.get(), pos, state);
     }
 
     public boolean isGenerating() {

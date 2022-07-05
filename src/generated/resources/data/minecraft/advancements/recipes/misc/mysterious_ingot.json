@@ -1,17 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "compatible_ingot": {
+    "has_ore": {
       "conditions": {
         "items": [
           {
             "items": [
-              "mcjtylearning:mysterious_ingot"
-            ]
-          },
-          {
-            "items": [
-              "mcjtylearning:verite_ingot"
+              "mcjtylearning:raw_mysterious_chunk"
             ]
           }
         ]
@@ -20,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mcjtylearning:generator"
+        "recipe": "minecraft:mysterious_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "compatible_ingot",
+      "has_ore",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mcjtylearning:generator"
+      "minecraft:mysterious_ingot"
     ]
   }
 }

@@ -6,7 +6,7 @@ import com.mojang.math.Matrix4f;
 import com.mojang.math.Quaternion;
 import com.thomasglasser.mcjtylearning.McJtyLearning;
 import com.thomasglasser.mcjtylearning.server.blocks.entities.PowerGeneratorBlockEntity;
-import com.thomasglasser.mcjtylearning.init.Registration;
+import com.thomasglasser.mcjtylearning.init.Elements;
 import com.thomasglasser.mcjtylearning.init.config.PowerGeneratorConfig;
 import com.thomasglasser.mcjtylearning.tools.CustomRenderType;
 import net.minecraft.client.GraphicsStatus;
@@ -80,6 +80,6 @@ public class PowerGeneratorRenderer implements BlockEntityRenderer<PowerGenerato
 
     public static void register()
     {
-        BlockEntityRenderers.register(Registration.POWER_GENERATOR_BLOCK_ENTITY.get(), PowerGeneratorRenderer::new);
+        BlockEntityRenderers.register(Elements.POWER_GENERATOR_BLOCK_ENTITY.get(), PowerGeneratorRenderer::new);
     }
 }

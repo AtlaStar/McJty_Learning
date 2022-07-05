@@ -31,9 +31,9 @@ public class ClientSetup {
     public static void init(FMLClientSetupEvent event)
     {
         event.enqueueWork(() -> {
-            MenuScreens.register(Registration.POWER_GENERATOR_CONTAINER.get(), PowerGeneratorScreen::new);
+            MenuScreens.register(Elements.POWER_GENERATOR_CONTAINER.get(), PowerGeneratorScreen::new);
 
-            ItemBlockRenderTypes.setRenderLayer(Registration.POWER_GENERATOR.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(Elements.POWER_GENERATOR.get(), RenderType.translucent());
 
             PowerGeneratorRenderer.register();
         });
@@ -59,7 +59,7 @@ public class ClientSetup {
     @SubscribeEvent
     public static void onRegisterRenderer(EntityRenderersEvent.RegisterRenderers event)
     {
-        event.registerEntityRenderer(Registration.THIEF.get(), ThiefRenderer::new);
+        event.registerEntityRenderer(Elements.THIEF.get(), ThiefRenderer::new);
     }
 
     @SubscribeEvent

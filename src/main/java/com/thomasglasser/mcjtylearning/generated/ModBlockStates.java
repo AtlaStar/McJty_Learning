@@ -1,7 +1,7 @@
 package com.thomasglasser.mcjtylearning.generated;
 
 import com.thomasglasser.mcjtylearning.McJtyLearning;
-import com.thomasglasser.mcjtylearning.init.Registration;
+import com.thomasglasser.mcjtylearning.init.Elements;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.Block;
@@ -25,18 +25,22 @@ public class ModBlockStates extends BlockStateProvider {
     {
         registerPowerGenerator();
         registerGenerator();
-        simpleBlock(Registration.VERITE_ORE.get());
-        logBlock((RotatedPillarBlock) Registration.FROST_LOG.get());
+        simpleBlock(Elements.VERITE_ORE.get());
+        simpleBlock(Elements.MYSTERIOUS_ORE.get());
+        simpleBlock(Elements.NETHER_MYSTERIOUS_ORE.get());
+        simpleBlock(Elements.DEEPSLATE_MYSTERIOUS_ORE.get());
+        simpleBlock(Elements.END_MYSTERIOUS_ORE.get());
+        logBlock((RotatedPillarBlock) Elements.FROST_LOG.get());
     }
 
     private void registerGenerator()
     {
-        BlockModelBuilder generatorModel = models().getBuilder(Registration.GENERATOR.getId().getPath())
+        BlockModelBuilder generatorModel = models().getBuilder(Elements.GENERATOR.getId().getPath())
                 .parent(models().getExistingFile(mcLoc("cube")))
                 .customLoader((blockModelBuilder, helper) -> new CustomLoaderBuilder<BlockModelBuilder>(GENERATOR_LOADER, blockModelBuilder, helper) {} )
                 .end();
 
-        directionalBlock(Registration.GENERATOR.get(), generatorModel);
+        directionalBlock(Elements.GENERATOR.get(), generatorModel);
     }
 
     private void registerPowerGenerator()
@@ -64,7 +68,7 @@ public class ModBlockStates extends BlockStateProvider {
         frame.texture("window", modLoc("block/powergen_window"));
         frame.texture("particle", modLoc("block/powergen_off"));
 
-        createPowerGeneratorModel(Registration.POWER_GENERATOR.get(), frame);
+        createPowerGeneratorModel(Elements.POWER_GENERATOR.get(), frame);
     }
 
     private void floatingCube(BlockModelBuilder builder, float fx, float fy, float fz, float tx, float ty, float tz)

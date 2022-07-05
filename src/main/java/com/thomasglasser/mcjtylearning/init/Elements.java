@@ -7,7 +7,6 @@ import com.thomasglasser.mcjtylearning.server.blocks.entities.GeneratorBlockEnti
 import com.thomasglasser.mcjtylearning.server.blocks.entities.PowerGeneratorBlockEntity;
 import com.thomasglasser.mcjtylearning.server.entities.Thief;
 import net.minecraft.core.Direction;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.inventory.MenuType;
@@ -29,7 +28,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import static com.thomasglasser.mcjtylearning.McJtyLearning.MODID;
 
-public class Registration {
+public class Elements {
 
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
@@ -50,12 +49,20 @@ public class Registration {
 
     //BLOCKS
     public static final RegistryObject<Block> VERITE_ORE = BLOCKS.register("verite_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(2.0F)));
+    public static final RegistryObject<Block> MYSTERIOUS_ORE = BLOCKS.register("mysterious_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(2.0F)));
+    public static final RegistryObject<Block> DEEPSLATE_MYSTERIOUS_ORE = BLOCKS.register("deepslate_mysterious_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(2.0F)));
+    public static final RegistryObject<Block> NETHER_MYSTERIOUS_ORE = BLOCKS.register("nether_mysterious_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(2.0F)));
+    public static final RegistryObject<Block> END_MYSTERIOUS_ORE = BLOCKS.register("end_mysterious_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(2.0F)));
     public static final RegistryObject<Block> FROST_LOG = BLOCKS.register("frost_log", () -> log(MaterialColor.COLOR_LIGHT_BLUE, MaterialColor.COLOR_LIGHT_GRAY));
     public static final RegistryObject<PowerGeneratorBlock> POWER_GENERATOR = BLOCKS.register("power_generator", PowerGeneratorBlock::new);
     public static final RegistryObject<Block> GENERATOR = BLOCKS.register("generator", GeneratorBlock::new);
 
     //BLOCK ITEMS
     public static final RegistryObject<Item> VERITE_ORE_ITEM = registerBlock(VERITE_ORE, CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Item> MYSTERIOUS_ORE_ITEM = registerBlock(MYSTERIOUS_ORE, CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Item> DEEPSLATE_MYSTERIOUS_ORE_ITEM = registerBlock(DEEPSLATE_MYSTERIOUS_ORE, CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Item> END_MYSTERIOUS_ORE_ITEM = registerBlock(END_MYSTERIOUS_ORE, CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Item> NETHER_MYSTERIOUS_ORE_ITEM = registerBlock(NETHER_MYSTERIOUS_ORE, CreativeModeTab.TAB_BUILDING_BLOCKS);
     public static final RegistryObject<Item> FROST_LOG_ITEM = registerBlock(FROST_LOG, CreativeModeTab.TAB_BUILDING_BLOCKS);
     public static final RegistryObject<Item> POWER_GENERATOR_ITEM = registerBlock(POWER_GENERATOR, CreativeModeTab.TAB_REDSTONE);
     public static final RegistryObject<Item> GENERATOR_ITEM = registerBlock(GENERATOR, CreativeModeTab.TAB_REDSTONE);
@@ -70,6 +77,8 @@ public class Registration {
     //ITEMS
     public static final RegistryObject<Item> RAW_VERITE_CHUNK = ITEMS.register("raw_verite_chunk", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
     public static final RegistryObject<Item> VERITE_INGOT = ITEMS.register("verite_ingot", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+    public static final RegistryObject<Item> RAW_MYSTERIOUS_CHUNK = ITEMS.register("raw_mysterious_chunk", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+    public static final RegistryObject<Item> MYSTERIOUS_INGOT = ITEMS.register("mysterious_ingot", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
     public static final RegistryObject<Item> THIEF_SPAWN_EGG = ITEMS.register("thief", () -> new ForgeSpawnEggItem(THIEF, 0xff0000, 0x00ff00, new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
     //BLOCK ENTITIES

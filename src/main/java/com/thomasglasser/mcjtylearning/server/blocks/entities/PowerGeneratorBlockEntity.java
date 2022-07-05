@@ -1,6 +1,6 @@
 package com.thomasglasser.mcjtylearning.server.blocks.entities;
 
-import com.thomasglasser.mcjtylearning.init.Registration;
+import com.thomasglasser.mcjtylearning.init.Elements;
 import com.thomasglasser.mcjtylearning.init.config.PowerGeneratorConfig;
 import com.thomasglasser.mcjtylearning.tools.CustomEnergyStorage;
 import net.minecraft.core.BlockPos;
@@ -37,7 +37,7 @@ public class PowerGeneratorBlockEntity extends BlockEntity
 
     public PowerGeneratorBlockEntity(BlockPos pPos, BlockState pState)
     {
-        super(Registration.POWER_GENERATOR_BLOCK_ENTITY.get(), pPos, pState);
+        super(Elements.POWER_GENERATOR_BLOCK_ENTITY.get(), pPos, pState);
     }
 
     @Override

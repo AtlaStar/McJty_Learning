@@ -1,15 +1,14 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "mcjtylearning:power_generator"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "verite": {
+    "compatible_ingot": {
       "conditions": {
         "items": [
+          {
+            "items": [
+              "mcjtylearning:mysterious_ingot"
+            ]
+          },
           {
             "items": [
               "mcjtylearning:verite_ingot"
@@ -18,11 +17,17 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mcjtylearning:power_generator"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "verite",
+      "compatible_ingot",
       "has_the_recipe"
     ]
   ],

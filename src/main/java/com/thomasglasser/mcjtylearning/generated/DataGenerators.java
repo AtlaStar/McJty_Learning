@@ -2,6 +2,7 @@ package com.thomasglasser.mcjtylearning.generated;
 
 import com.thomasglasser.mcjtylearning.McJtyLearning;
 import net.minecraft.data.DataGenerator;
+import net.minecraftforge.common.data.JsonCodecProvider;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
@@ -12,7 +13,6 @@ public class DataGenerators {
     public static void gatherData(GatherDataEvent event)
     {
         DataGenerator generator = event.getGenerator();
-
         boolean onServer = event.includeServer();
         boolean onClient = event.includeClient();
 

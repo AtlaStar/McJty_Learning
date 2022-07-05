@@ -1,6 +1,6 @@
 package com.thomasglasser.mcjtylearning.server.blocks.containers;
 
-import com.thomasglasser.mcjtylearning.init.Registration;
+import com.thomasglasser.mcjtylearning.init.Elements;
 import com.thomasglasser.mcjtylearning.tools.CustomEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
@@ -25,7 +25,7 @@ public class PowerGeneratorContainer extends AbstractContainerMenu
 
     public PowerGeneratorContainer(int windowId, BlockPos pos, Inventory playerInventory, Player player)
     {
-        super(Registration.POWER_GENERATOR_CONTAINER.get(), windowId);
+        super(Elements.POWER_GENERATOR_CONTAINER.get(), windowId);
         blockEntity = player.getCommandSenderWorld().getBlockEntity(pos);
         this.player = player;
         this.playerInventory = new InvWrapper(playerInventory);
@@ -80,7 +80,7 @@ public class PowerGeneratorContainer extends AbstractContainerMenu
 
     @Override
     public boolean stillValid(Player pPlayer) {
-        return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), player, Registration.POWER_GENERATOR.get());
+        return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), player, Elements.POWER_GENERATOR.get());
     }
 
     @Override

@@ -1,6 +1,10 @@
 {
   "values": [
     "mcjtylearning:verite_ore",
+    "mcjtylearning:mysterious_ore",
+    "mcjtylearning:deepslate_mysterious_ore",
+    "mcjtylearning:nether_mysterious_ore",
+    "mcjtylearning:end_mysterious_ore",
     "mcjtylearning:power_generator",
     "mcjtylearning:generator"
   ]
