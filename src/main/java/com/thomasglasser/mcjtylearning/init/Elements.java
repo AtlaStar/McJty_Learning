@@ -1,5 +1,8 @@
 package com.thomasglasser.mcjtylearning.init;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.thomasglasser.mcjtylearning.server.worldgen.OreModifier;
 import com.thomasglasser.mcjtylearning.server.blocks.GeneratorBlock;
 import com.thomasglasser.mcjtylearning.server.blocks.PowerGeneratorBlock;
 import com.thomasglasser.mcjtylearning.server.blocks.containers.PowerGeneratorContainer;
@@ -13,13 +16,16 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.common.extensions.IForgeMenuType;
+import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -37,6 +43,8 @@ public class Elements {
 
     private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, MODID);
 
+    private static final DeferredRegister<Codec<? extends BiomeModifier>> BIOME_MODIFIERS = DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, MODID);
+
     public static void init()
     {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -45,6 +53,7 @@ public class Elements {
         BLOCK_ENTITIES.register(bus);
         CONTAINERS.register(bus);
         ENTITIES.register(bus);
+        BIOME_MODIFIERS.register(bus);
     }
 
     //BLOCKS
@@ -87,6 +96,13 @@ public class Elements {
 
     //MENU TYPES
     public static final RegistryObject<MenuType<PowerGeneratorContainer>> POWER_GENERATOR_CONTAINER = CONTAINERS.register("powergen", () -> IForgeMenuType.create(((windowId, inv, data) -> new PowerGeneratorContainer(windowId, data.readBlockPos(), inv, inv.player))));
+
+    //WORLDGEN
+    public static final RegistryObject<Codec<OreModifier>> ORE_MODIFIER = BIOME_MODIFIERS.register("ores", () ->
+            RecordCodecBuilder.create(builder -> builder.group(
+                    Biome.LIST_CODEC.fieldOf("biomes").forGetter(OreModifier::biomes),
+                    PlacedFeature.CODEC.fieldOf("feature").forGetter(OreModifier::feature)
+                ).apply(builder, OreModifier::new)));
 
     public static <B extends Block> RegistryObject<Item> registerBlock(RegistryObject<B> block, CreativeModeTab tab)
     {
