@@ -1,15 +1,20 @@
 package com.thomasglasser.mcjtylearning;
 
 import com.mojang.logging.LogUtils;
+import com.mojang.serialization.Codec;
+import com.thomasglasser.mcjtylearning.generated.DataGenerators;
 import com.thomasglasser.mcjtylearning.init.Configuration;
 import com.thomasglasser.mcjtylearning.init.ModSetup;
 import com.thomasglasser.mcjtylearning.init.Elements;
 import com.thomasglasser.mcjtylearning.init.ClientSetup;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -30,6 +35,7 @@ public class McJtyLearning
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(ModSetup::init);
+        bus.addListener(DataGenerators::gatherData);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> bus.addListener(ClientSetup::init));
     }
 }
