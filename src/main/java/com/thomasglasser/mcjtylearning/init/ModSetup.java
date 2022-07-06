@@ -3,7 +3,6 @@ package com.thomasglasser.mcjtylearning.init;
 import com.thomasglasser.mcjtylearning.McJtyLearning;
 import com.thomasglasser.mcjtylearning.init.events.ManaEvents;
 import com.thomasglasser.mcjtylearning.server.entities.Thief;
-import com.thomasglasser.mcjtylearning.server.worldgen.ores.ModOres;
 import net.minecraft.world.entity.Entity;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;

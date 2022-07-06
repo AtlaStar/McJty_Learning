@@ -7,8 +7,10 @@ import com.thomasglasser.mcjtylearning.server.blocks.entities.GeneratorBlockEnti
 import com.thomasglasser.mcjtylearning.server.blocks.entities.PowerGeneratorBlockEntity;
 import com.thomasglasser.mcjtylearning.server.entities.Thief;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.OreFeatures;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.inventory.MenuType;
@@ -40,8 +42,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static com.thomasglasser.mcjtylearning.McJtyLearning.MODID;
-import static com.thomasglasser.mcjtylearning.server.worldgen.ores.ModOres.MYSTERIOUS_ORE_AMOUNT;
-import static com.thomasglasser.mcjtylearning.server.worldgen.ores.ModOres.MYSTERIOUS_ORE_VEIN_SIZE;
 
 public class Elements {
 
@@ -50,7 +50,6 @@ public class Elements {
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, MODID);
     private static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, MODID);
     private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, MODID);
-    private static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, MODID);
     private static final DeferredRegister<PlacedFeature> PLACED_FEATURES = DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, MODID);
 
     public static void init()
@@ -61,7 +60,6 @@ public class Elements {
         BLOCK_ENTITIES.register(bus);
         CONTAINERS.register(bus);
         ENTITIES.register(bus);
-        CONFIGURED_FEATURES.register(bus);
         PLACED_FEATURES.register(bus);
     }
 
@@ -106,11 +104,8 @@ public class Elements {
     //MENU TYPES
     public static final RegistryObject<MenuType<PowerGeneratorContainer>> POWER_GENERATOR_CONTAINER = CONTAINERS.register("powergen", () -> IForgeMenuType.create(((windowId, inv, data) -> new PowerGeneratorContainer(windowId, data.readBlockPos(), inv, inv.player))));
 
-    //CONFIGURED FEATURES
-    public static final RegistryObject<ConfiguredFeature<?, ?>> MYSTERIOUS_ORE_CONFIGURED = CONFIGURED_FEATURES.register("mysterious_ore_configured", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, Elements.MYSTERIOUS_ORE.get().defaultBlockState(), MYSTERIOUS_ORE_VEIN_SIZE)));
-
     //PLACED FEATURES
-    public static final RegistryObject<PlacedFeature> MYSTERIOUS_ORE_PLACED = PLACED_FEATURES.register("mysterious_ore_placed", () -> new PlacedFeature(MYSTERIOUS_ORE_CONFIGURED.getHolder().get(), new ArrayList<PlacementModifier>(Arrays.asList(CountPlacement.of(MYSTERIOUS_ORE_AMOUNT), InSquarePlacement.spread(), BiomeFilter.biome(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(90))))));
+    public static final RegistryObject<PlacedFeature> MYSTERIOUS_ORE_PLACED = PLACED_FEATURES.register("mysterious_ore_placed", () -> registerPlacedFeature("mysterious_ore_placed", new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, MYSTERIOUS_ORE.get().defaultBlockState(), 5)), CountPlacement.of(3), InSquarePlacement.spread(), BiomeFilter.biome(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(90))).get());
 
     public static <B extends Block> RegistryObject<Item> registerBlock(RegistryObject<B> block, CreativeModeTab tab)
     {
@@ -121,5 +116,9 @@ public class Elements {
         return new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, (p_152624_) -> {
             return p_152624_.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? pTopColor : pBarkColor;
         }).strength(2.0F).sound(SoundType.WOOD));
+    }
+
+    private static <C extends FeatureConfiguration, F extends Feature<C>> Holder<PlacedFeature> registerPlacedFeature(String registryName, ConfiguredFeature<C, F> feature, PlacementModifier... placementModifiers) {
+        return PlacementUtils.register(registryName, Holder.direct(feature), placementModifiers);
     }
 }
