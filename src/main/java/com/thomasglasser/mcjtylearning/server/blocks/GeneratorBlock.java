@@ -33,6 +33,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
+
 public class GeneratorBlock extends Block implements EntityBlock
 {
     public static final String MESSAGE_GENERATOR = "message.generator";

@@ -1,4 +1,4 @@
-// 1.19	2022-07-05T09:07:06.6667791	Block States: mcjtylearning
+// 1.19	2022-07-10T16:34:40.6992973	Block States: mcjtylearning
 38320ffe71d004173bbba46db3375539e0999c31 assets/mcjtylearning/blockstates/deepslate_mysterious_ore.json
 a052bf19dab5474efc15ee0454ea1bf02db0c91d assets/mcjtylearning/blockstates/end_mysterious_ore.json
 ca9ec4fe6c4029715a36336dee393c6d21f9afe6 assets/mcjtylearning/blockstates/frost_log.json
@@ -14,7 +14,7 @@ b6ac9c37b52ddbc5ecc3e5d85abe8d9779dd68d8 assets/mcjtylearning/blockstates/nether
 e18971b6f545f9ee58d39c505ebe1b2aaa85df6d assets/mcjtylearning/models/block/generator.json
 7c53c7e8c9a701c7f697c0acaeb0dc73c08dc72f assets/mcjtylearning/models/block/mysterious_ore.json
 044e274af7b60e24faedf080c967763d05aa49cb assets/mcjtylearning/models/block/nether_mysterious_ore.json
-b3acc4a87b9dd60a6e7cc375ea977468c279e982 assets/mcjtylearning/models/block/powergen/main.json
+fd45d7e6d6c4aacc1b8df13aa6b3c0390446863d assets/mcjtylearning/models/block/powergen/main.json
 1ecb47bf9a4c4772af2a60567a76db30a74cc6de assets/mcjtylearning/models/block/powergen/singleoff.json
 1b8189b0dbb21b034a248561bfe2996008f3b19d assets/mcjtylearning/models/block/powergen/singleon.json
 4b0e267ab8a3858be09d166aa8772d19634aecfb assets/mcjtylearning/models/block/verite_ore.json

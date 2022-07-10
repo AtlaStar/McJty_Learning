@@ -418,6 +418,7 @@
       ]
     }
   ],
+  "render_type": "minecraft:translucent",
   "textures": {
     "particle": "mcjtylearning:block/powergen_off",
     "window": "mcjtylearning:block/powergen_window"

@@ -36,6 +36,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
+
 public class PowerGeneratorBlock extends Block implements EntityBlock
 {
     public static final String MESSAGE_POWER_GENERATOR = "message.power_generator";
@@ -129,4 +131,6 @@ public class PowerGeneratorBlock extends Block implements EntityBlock
         }
         return InteractionResult.SUCCESS;
     }
+
+
 }

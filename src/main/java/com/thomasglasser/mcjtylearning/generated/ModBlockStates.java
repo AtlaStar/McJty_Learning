@@ -2,6 +2,7 @@ package com.thomasglasser.mcjtylearning.generated;
 
 import com.thomasglasser.mcjtylearning.McJtyLearning;
 import com.thomasglasser.mcjtylearning.init.Elements;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.Block;
@@ -67,6 +68,8 @@ public class ModBlockStates extends BlockStateProvider {
 
         frame.texture("window", modLoc("block/powergen_window"));
         frame.texture("particle", modLoc("block/powergen_off"));
+
+        frame.renderType("translucent");
 
         createPowerGeneratorModel(Elements.POWER_GENERATOR.get(), frame);
     }

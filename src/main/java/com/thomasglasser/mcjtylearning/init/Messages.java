@@ -30,13 +30,13 @@ public class Messages
         net.messageBuilder(GatherManaPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
                 .decoder(GatherManaPacket::new)
                 .encoder(GatherManaPacket::toBytes)
-                .consumer(GatherManaPacket::handle)
+                .consumerMainThread(GatherManaPacket::handle)
                 .add();
 
         net.messageBuilder(SyncManaToClientPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
                 .decoder(SyncManaToClientPacket::new)
                 .encoder(SyncManaToClientPacket::toBytes)
-                .consumer(SyncManaToClientPacket::handle)
+                .consumerNetworkThread(SyncManaToClientPacket::handle)
                 .add();
     }
 

@@ -13,6 +13,8 @@ import net.minecraft.world.phys.Vec3;
 import java.util.EnumSet;
 import java.util.List;
 
+import net.minecraft.world.entity.ai.goal.Goal.Flag;
+
 public class AvoidEntityNoCombatGoal<T extends LivingEntity> extends Goal
 {
     protected final PathfinderMob mob;

@@ -8,6 +8,9 @@ import net.minecraft.world.Clearable;
 
 import static net.minecraft.client.renderer.RenderStateShard.*;
 
+import net.minecraft.client.renderer.RenderStateShard.ShaderStateShard;
+import net.minecraft.client.renderer.RenderType.CompositeState;
+
 public class CustomRenderType extends RenderType
 {
     public CustomRenderType(String pName, VertexFormat pFormat, VertexFormat.Mode pMode, int pBufferSize, boolean pAffectsCrumbling, boolean pSortOnUpload, Runnable pSetupState, Runnable pClearState) {
