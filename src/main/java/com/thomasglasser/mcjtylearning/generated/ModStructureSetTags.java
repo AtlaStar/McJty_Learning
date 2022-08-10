@@ -25,8 +25,8 @@ public class ModStructureSetTags extends TagsProvider<StructureSet>
     @Override
     protected void addTags() {
         tag(MYSTERIOUS_DIMENSION_STRUCTURE_SET)
-                .add(ResourceKey.create(BuiltinRegistries.STRUCTURE_SETS.key(), new ResourceLocation(McJtyLearning.MODID, "portal")))
-                .add(ResourceKey.create(BuiltinRegistries.STRUCTURE_SETS.key(), new ResourceLocation(McJtyLearning.MODID, "thiefden")));
+                .add(ResourceKey.create(BuiltinRegistries.STRUCTURE_SETS.key(), Elements.PORTAL_STRUCTURE.getId()))
+                .add(ResourceKey.create(BuiltinRegistries.STRUCTURE_SETS.key(), Elements.THIEF_DEN.getId()));
     }
 
     @Override

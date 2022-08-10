@@ -1,6 +1,6 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#mcjtylearning:has_ore",
-  "features": "mcjtylearning:mysterious_mysterious_ore",
-  "step": "underground_ores"
-}
+ {
+   "type": "forge:add_features",
+   "biomes": "#mcjtylearning:has_ore",
+   "features": "mcjtylearning:stone_mysterious_ore",
+   "step": "underground_ores"
+ }

@@ -131,6 +131,4 @@ public class PowerGeneratorBlock extends Block implements EntityBlock
         }
         return InteractionResult.SUCCESS;
     }
-
-
 }
