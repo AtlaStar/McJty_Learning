@@ -37,8 +37,8 @@ public class DataGenerators {
         generator.addProvider(onServer, new ModItemTags(generator, blockTags, existingFileHelper));
         generator.addProvider(onServer, new ModRecipes(generator));
         generator.addProvider(onServer, new ModLootTables(generator));
-        generator.addProvider(onServer, new ModStructureSetTags(generator, existingFileHelper));
         generator.addProvider(onServer, new ModBiomeTags(generator, existingFileHelper));
+        generator.addProvider(onServer, new ModStructureSetTags(generator, existingFileHelper));
 
         //Client
         generator.addProvider(onClient, new ModBlockStates(generator, existingFileHelper));
