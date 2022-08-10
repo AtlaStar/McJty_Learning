@@ -1,10 +1,8 @@
-// 1.19.2	2022-08-09T21:23:40.998706	McJty Learning Tags
-82d9d08d941654483eee34f146613ad809366c71 data/forge/tags/blocks/ores.json
-1b2b7dec5e09c6182ffee85bab9da60dc769dd46 data/forge/tags/blocks/storage_blocks.json
-fd11d71b34351c0ba45e582d7a26e2184f968ee1 data/mcjtylearning/tags/blocks/mysterious_ore.json
-ee45aca837e523f83d7dfe2fe3404316b665baf8 data/minecraft/tags/blocks/logs.json
-ee45aca837e523f83d7dfe2fe3404316b665baf8 data/minecraft/tags/blocks/logs_that_burn.json
-ee45aca837e523f83d7dfe2fe3404316b665baf8 data/minecraft/tags/blocks/mineable/axe.json
-edd10e2f4d72975d2c0bf0bb858c02c61cd8127a data/minecraft/tags/blocks/mineable/pickaxe.json
-edd10e2f4d72975d2c0bf0bb858c02c61cd8127a data/minecraft/tags/blocks/needs_iron_tool.json
-9eee90269e25835fff405c9240d979d2336bf72a data/minecraft/tags/blocks/portals.json
+// 1.19.2	2022-08-09T22:16:09.0905516	McJty Learning Tags
+9fae994a712b93576ad1318bc729818d15432750 data/forge/tags/items/ingots.json
+82d9d08d941654483eee34f146613ad809366c71 data/forge/tags/items/ores.json
+d7e7a654e50b0c811ca4764632989e4d8b05f96d data/forge/tags/items/raw_materials.json
+1b2b7dec5e09c6182ffee85bab9da60dc769dd46 data/forge/tags/items/storage_blocks.json
+fd11d71b34351c0ba45e582d7a26e2184f968ee1 data/mcjtylearning/tags/items/mysterious_ore.json
+ee45aca837e523f83d7dfe2fe3404316b665baf8 data/minecraft/tags/items/logs.json
+ee45aca837e523f83d7dfe2fe3404316b665baf8 data/minecraft/tags/items/logs_that_burn.json
