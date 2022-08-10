@@ -1,0 +1,15 @@
+{
+  "type": "mcjtylearning:thiefden",
+  "start_pool": "mcjtylearning:thiefden/start_pool",
+  "size": 2,
+  "max_distance_from_center": 20,
+  "step": "surface_structures",
+  "start_height": {
+    "absolute": 60
+  },
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "biomes": "#mcjtylearning:has_structure/thiefden",
+  "adapt_noise": true,
+  "spawn_overrides": {
+  }
+}

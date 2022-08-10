@@ -24,6 +24,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add(Elements.FROST_LOG.get(), "Frost Log");
         add(Elements.POWER_GENERATOR.get(), "Power Generator");
         add(Elements.GENERATOR.get(), "Generator");
+        add(Elements.PORTAL.get(), "Mysterious Portal");
 
         add(Elements.RAW_VERITE_CHUNK.get(), "Raw Verite Chunk");
         add(Elements.RAW_MYSTERIOUS_CHUNK.get(), "Raw Mysterious Chunk");

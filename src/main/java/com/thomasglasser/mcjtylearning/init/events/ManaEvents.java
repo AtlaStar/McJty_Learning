@@ -31,7 +31,7 @@ public class ManaEvents
         {
             event.getOriginal().getCapability(PlayerManaProvider.PLAYER_MANA).ifPresent(oldStore ->
             {
-                event.getPlayer().getCapability(PlayerManaProvider.PLAYER_MANA).ifPresent(newStore ->
+                event.getEntity().getCapability(PlayerManaProvider.PLAYER_MANA).ifPresent(newStore ->
                 {
                     newStore.copyMana(oldStore);
                 });
@@ -44,14 +44,14 @@ public class ManaEvents
         event.register(PlayerMana.class);
     }
 
-    public static void onWorldTick(TickEvent.WorldTickEvent event)
+    public static void onWorldTick(TickEvent.LevelTickEvent event)
     {
-        if (event.world.isClientSide || event.phase == TickEvent.Phase.START)
+        if (event.level.isClientSide() || event.phase == TickEvent.Phase.START)
         {
             return;
         }
 
-        ManaManager manager = ManaManager.get(event.world);
-        manager.tick(event.world);
+        ManaManager manager = ManaManager.get(event.level);
+        manager.tick(event.level);
     }
 }

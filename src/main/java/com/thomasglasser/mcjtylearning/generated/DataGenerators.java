@@ -12,10 +12,9 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.JsonCodecProvider;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
-
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +37,8 @@ public class DataGenerators {
         generator.addProvider(onServer, new ModItemTags(generator, blockTags, existingFileHelper));
         generator.addProvider(onServer, new ModRecipes(generator));
         generator.addProvider(onServer, new ModLootTables(generator));
+        generator.addProvider(onServer, new ModStructureSetTags(generator, existingFileHelper));
+        generator.addProvider(onServer, new ModBiomeTags(generator, existingFileHelper));
 
         //Client
         generator.addProvider(onClient, new ModBlockStates(generator, existingFileHelper));

@@ -18,31 +18,12 @@ public class ClientTools
 {
     private static void putVertex(QuadBakingVertexConsumer builder, Vector3f normal, Vector4f vector, float u, float v, TextureAtlasSprite sprite)
     {
-        var elements = DefaultVertexFormat.BLOCK.getElements();
-
-        for (int j = 0; j < elements.size(); j++)
-        {
-            var e = elements.get(j);
-
-            switch (e.getUsage())
-            {
-                case POSITION -> builder.vertex(vector.x(), vector.y(), vector.z());
-                case COLOR -> builder.color(1.0f, 1.0f, 1.0f, 1.0f);
-                case UV -> putVertexUV(builder, u, v, sprite, j, e);
-                case NORMAL -> builder.normal(normal.x(), normal.y(), normal.z());
-            }
-        }
-
-        builder.endVertex();
-    }
-
-    private static void putVertexUV(QuadBakingVertexConsumer builder, float u, float v, TextureAtlasSprite sprite, int j, VertexFormatElement e)
-    {
-        switch (e.getIndex())
-        {
-            case 0 -> builder.uv(sprite.getU(u), sprite.getV(v));
-            case 2 -> builder.uv2((short) 0, (short) 0);
-        }
+        builder.vertex(vector.x(), vector.y(), vector.z())
+                .color(1.0f, 1.0f, 1.0f, 1.0f)
+                .uv(sprite.getU(u), sprite.getV(v))
+                .uv2(0, 0)
+                .normal(normal.x(), normal.y(), normal.z())
+                .endVertex();
     }
 
     public static void createQuad(QuadBakingVertexConsumer builder, Vector3f v1, Vector3f v2, Vector3f v3, Vector3f v4, Transformation rotation, TextureAtlasSprite sprite)

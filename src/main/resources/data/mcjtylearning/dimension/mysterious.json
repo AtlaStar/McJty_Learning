@@ -1,0 +1,12 @@
+{
+  "type": "mcjtylearning:mysterious",
+  "generator": {
+    "type": "mcjtylearning:mysterious_chunk_generation",
+    "settings":
+    {
+      "base": 65,
+      "verticalVariance": 10,
+      "horizontalVariance": 8
+    }
+  }
+}

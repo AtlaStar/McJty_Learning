@@ -77,6 +77,6 @@ public class ClientSetup {
     @SubscribeEvent
     public static void onRegisterKeyMappings(RegisterKeyMappingsEvent event)
     {
-        event.register(KeyBindings.gatherManaKeyMapping);
+        KeyBindings.init(event);
     }
 }

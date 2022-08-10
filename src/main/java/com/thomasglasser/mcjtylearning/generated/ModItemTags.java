@@ -2,6 +2,7 @@ package com.thomasglasser.mcjtylearning.generated;
 
 import com.thomasglasser.mcjtylearning.McJtyLearning;
 import com.thomasglasser.mcjtylearning.init.Elements;
+import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -13,6 +14,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class ModItemTags extends ItemTagsProvider
 {
+    public static final TagKey<Item> MYSTERIOUS_ORE_ITEM = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(McJtyLearning.MODID, "mysterious_ore"));
+
     public ModItemTags(DataGenerator generator, ModBlockTags blockTags, ExistingFileHelper existingFileHelper) {
         super(generator, blockTags, McJtyLearning.MODID, existingFileHelper);
     }
@@ -43,6 +46,12 @@ public class ModItemTags extends ItemTagsProvider
 
         tag(Tags.Items.STORAGE_BLOCKS)
                 .add(Elements.GENERATOR_ITEM.get());
+
+        tag(MYSTERIOUS_ORE_ITEM)
+                .add(Elements.MYSTERIOUS_ORE_ITEM.get())
+                .add(Elements.DEEPSLATE_MYSTERIOUS_ORE_ITEM.get())
+                .add(Elements.NETHER_MYSTERIOUS_ORE_ITEM.get())
+                .add(Elements.END_MYSTERIOUS_ORE_ITEM.get());
     }
 
     @Override

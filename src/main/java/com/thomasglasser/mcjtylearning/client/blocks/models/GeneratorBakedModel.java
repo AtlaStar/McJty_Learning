@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.IDynamicBakedModel;
 import net.minecraftforge.client.model.IQuadTransformer;
+import net.minecraftforge.client.model.QuadTransformers;
 import net.minecraftforge.client.model.data.ModelData;
 import net.minecraftforge.client.model.pipeline.QuadBakingVertexConsumer;
 import org.jetbrains.annotations.NotNull;
@@ -152,7 +153,7 @@ public class GeneratorBakedModel implements IDynamicBakedModel
                     Direction facing = state == null ? Direction.SOUTH : state.getValue(BlockStateProperties.FACING);
                     Transformation rotation = modelState.getRotation();
                     Transformation translate = transformGeneratingBlock(facing, rotation);
-                    IQuadTransformer transformer = IQuadTransformer.applying(translate);
+                    IQuadTransformer transformer = QuadTransformers.applying(translate);
 
                     for (Direction s : Direction.values())
                     {

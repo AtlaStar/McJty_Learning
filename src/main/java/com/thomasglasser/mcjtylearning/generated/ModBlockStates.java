@@ -2,9 +2,9 @@ package com.thomasglasser.mcjtylearning.generated;
 
 import com.thomasglasser.mcjtylearning.McJtyLearning;
 import com.thomasglasser.mcjtylearning.init.Elements;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -26,12 +26,22 @@ public class ModBlockStates extends BlockStateProvider {
     {
         registerPowerGenerator();
         registerGenerator();
+        registerPortal();
+
         simpleBlock(Elements.VERITE_ORE.get());
         simpleBlock(Elements.MYSTERIOUS_ORE.get());
         simpleBlock(Elements.NETHER_MYSTERIOUS_ORE.get());
         simpleBlock(Elements.DEEPSLATE_MYSTERIOUS_ORE.get());
         simpleBlock(Elements.END_MYSTERIOUS_ORE.get());
+
         logBlock((RotatedPillarBlock) Elements.FROST_LOG.get());
+    }
+
+    private void registerPortal()
+    {
+        ResourceLocation side = modLoc("block/portal_side");
+        ResourceLocation top = modLoc("block/portal_top");
+        simpleBlock(Elements.PORTAL.get(), models().cube(Elements.PORTAL.getId().getPath(), side, top, side, side, side, side));
     }
 
     private void registerGenerator()

@@ -1,15 +1,19 @@
 package com.thomasglasser.mcjtylearning.init;
 
+import com.mojang.serialization.Codec;
 import com.thomasglasser.mcjtylearning.server.blocks.GeneratorBlock;
+import com.thomasglasser.mcjtylearning.server.blocks.PortalBlock;
 import com.thomasglasser.mcjtylearning.server.blocks.PowerGeneratorBlock;
 import com.thomasglasser.mcjtylearning.server.blocks.containers.PowerGeneratorContainer;
 import com.thomasglasser.mcjtylearning.server.blocks.entities.GeneratorBlockEntity;
 import com.thomasglasser.mcjtylearning.server.blocks.entities.PowerGeneratorBlockEntity;
 import com.thomasglasser.mcjtylearning.server.entities.Thief;
+import com.thomasglasser.mcjtylearning.server.world.ores.MysteriousOres;
+import com.thomasglasser.mcjtylearning.server.world.structures.PortalStructure;
+import com.thomasglasser.mcjtylearning.server.world.structures.ThiefDenStructure;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
-import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -20,26 +24,21 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.placement.*;
-import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.common.extensions.IForgeMenuType;
-import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import static com.thomasglasser.mcjtylearning.McJtyLearning.MODID;
 
@@ -47,9 +46,10 @@ public class Elements {
 
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
-    private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, MODID);
-    private static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, MODID);
-    private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, MODID);
+    private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, MODID);
+    private static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.MENU_TYPES, MODID);
+    private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, MODID);
+    private static final DeferredRegister<StructureType<?>> STRUCTURE_TYPES = DeferredRegister.create(Registry.STRUCTURE_TYPE_REGISTRY, MODID);
     private static final DeferredRegister<PlacedFeature> PLACED_FEATURES = DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, MODID);
 
     public static void init()
@@ -60,6 +60,7 @@ public class Elements {
         BLOCK_ENTITIES.register(bus);
         CONTAINERS.register(bus);
         ENTITIES.register(bus);
+        STRUCTURE_TYPES.register(bus);
         PLACED_FEATURES.register(bus);
     }
 
@@ -72,6 +73,7 @@ public class Elements {
     public static final RegistryObject<Block> FROST_LOG = BLOCKS.register("frost_log", () -> log(MaterialColor.COLOR_LIGHT_BLUE, MaterialColor.COLOR_LIGHT_GRAY));
     public static final RegistryObject<PowerGeneratorBlock> POWER_GENERATOR = BLOCKS.register("power_generator", PowerGeneratorBlock::new);
     public static final RegistryObject<Block> GENERATOR = BLOCKS.register("generator", GeneratorBlock::new);
+    public static final RegistryObject<Block> PORTAL = BLOCKS.register("portal", PortalBlock::new);
 
     //BLOCK ITEMS
     public static final RegistryObject<Item> VERITE_ORE_ITEM = registerBlock(VERITE_ORE, CreativeModeTab.TAB_BUILDING_BLOCKS);
@@ -82,6 +84,7 @@ public class Elements {
     public static final RegistryObject<Item> FROST_LOG_ITEM = registerBlock(FROST_LOG, CreativeModeTab.TAB_BUILDING_BLOCKS);
     public static final RegistryObject<Item> POWER_GENERATOR_ITEM = registerBlock(POWER_GENERATOR, CreativeModeTab.TAB_REDSTONE);
     public static final RegistryObject<Item> GENERATOR_ITEM = registerBlock(GENERATOR, CreativeModeTab.TAB_REDSTONE);
+    public static final RegistryObject<Item> PORTAL_ITEM = registerBlock(PORTAL, CreativeModeTab.TAB_DECORATIONS);
 
     //ENTITIES
     public static final RegistryObject<EntityType<Thief>> THIEF = ENTITIES.register("thief", () -> EntityType.Builder.of(Thief::new, MobCategory.CREATURE)
@@ -104,8 +107,13 @@ public class Elements {
     //MENU TYPES
     public static final RegistryObject<MenuType<PowerGeneratorContainer>> POWER_GENERATOR_CONTAINER = CONTAINERS.register("powergen", () -> IForgeMenuType.create(((windowId, inv, data) -> new PowerGeneratorContainer(windowId, data.readBlockPos(), inv, inv.player))));
 
+    //STRUCTURE TYPES
+    public static final RegistryObject<StructureType<?>> THIEF_DEN = STRUCTURE_TYPES.register("thiefden", () -> typeConvert(ThiefDenStructure.CODEC));
+    public static final RegistryObject<StructureType<?>> PORTAL_STRUCTURE = STRUCTURE_TYPES.register("portal", () -> typeConvert(PortalStructure.CODEC));
+
     //PLACED FEATURES
-    public static final RegistryObject<PlacedFeature> MYSTERIOUS_ORE_PLACED = PLACED_FEATURES.register("mysterious_ore_placed", () -> registerPlacedFeature("mysterious_ore_placed", new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, MYSTERIOUS_ORE.get().defaultBlockState(), 5)), CountPlacement.of(3), InSquarePlacement.spread(), BiomeFilter.biome(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(90))).get());
+    public static final RegistryObject<PlacedFeature> STONE_MYSTERIOUS_ORE_GENERATION = PLACED_FEATURES.register("stone_mysterious_ore", MysteriousOres::createStoneGeneration);
+    public static final RegistryObject<PlacedFeature> MYSTERIOUS_MYSTERIOUS_ORE_GENERATION = PLACED_FEATURES.register("mysterious_mysterious_ore", MysteriousOres::createStoneGeneration);
 
     public static <B extends Block> RegistryObject<Item> registerBlock(RegistryObject<B> block, CreativeModeTab tab)
     {
@@ -120,5 +128,9 @@ public class Elements {
 
     private static <C extends FeatureConfiguration, F extends Feature<C>> Holder<PlacedFeature> registerPlacedFeature(String registryName, ConfiguredFeature<C, F> feature, PlacementModifier... placementModifiers) {
         return PlacementUtils.register(registryName, Holder.direct(feature), placementModifiers);
+    }
+
+    private static <S extends Structure> StructureType<S> typeConvert(Codec<S> codec) {
+        return () -> codec;
     }
 }

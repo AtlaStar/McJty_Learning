@@ -122,7 +122,7 @@ public class PowerGeneratorBlock extends Block implements EntityBlock
                         return new PowerGeneratorContainer(pContainerId, pPos, pInventory, pPlayer);
                     }
                 };
-                NetworkHooks.openGui((ServerPlayer) pPlayer, containerProvider, blockEntity.getBlockPos());
+                NetworkHooks.openScreen((ServerPlayer) pPlayer, containerProvider, blockEntity.getBlockPos());
             }
             else
             {

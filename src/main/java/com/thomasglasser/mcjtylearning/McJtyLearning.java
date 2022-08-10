@@ -32,4 +32,8 @@ public class McJtyLearning
         bus.addListener(ModSetup::init);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> bus.addListener(ClientSetup::init));
     }
+
+    public static Logger getLOGGER() {
+        return LOGGER;
+    }
 }

@@ -18,9 +18,10 @@ public class ModItemModels extends ItemModelProvider {
         withExistingParent(Elements.DEEPSLATE_MYSTERIOUS_ORE_ITEM.getId().getPath(), modLoc("block/deepslate_mysterious_ore"));
         withExistingParent(Elements.NETHER_MYSTERIOUS_ORE_ITEM.getId().getPath(), modLoc("block/nether_mysterious_ore"));
         withExistingParent(Elements.END_MYSTERIOUS_ORE_ITEM.getId().getPath(), modLoc("block/end_mysterious_ore"));
-        withExistingParent(Elements.POWER_GENERATOR.getId().getPath(), modLoc("block/powergen/main"));
-        withExistingParent(Elements.GENERATOR.getId().getPath(), modLoc("block/generator"));
+        withExistingParent(Elements.POWER_GENERATOR_ITEM.getId().getPath(), modLoc("block/powergen/main"));
+        withExistingParent(Elements.GENERATOR_ITEM.getId().getPath(), modLoc("block/generator"));
         withExistingParent(Elements.THIEF_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(Elements.PORTAL_ITEM.getId().getPath(), modLoc("block/portal"));
 
         cubeColumn(Elements.FROST_LOG_ITEM.getId().getPath(), modLoc("block/frost_log"), modLoc("block/frost_log_top"));
 
