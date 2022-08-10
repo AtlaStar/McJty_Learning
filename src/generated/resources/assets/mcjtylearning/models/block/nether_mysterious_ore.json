@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "mcjtylearning:block/nether_mysterious_ore"
-  }
-}
